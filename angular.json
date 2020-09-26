@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kobovest"
+    }
+  },
+  "defaultProject": "kobovest",
+  "cli": {
+    "analytics": "d38d4c73-898e-479d-bc35-938550cc32c7"
+  }
 }
