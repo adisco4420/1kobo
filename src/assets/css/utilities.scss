@@ -1,0 +1,11 @@
+@import './variable.scss';
+.pry-text {
+    color: $pry-text !important;
+}
+.pry-btn {
+    background: $pry-btn-color;
+    color: white;
+}
+.pry-dark-text {
+    color: #006600;
+}

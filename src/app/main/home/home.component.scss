@@ -1,0 +1,32 @@
+.info-section {
+    background-color: #e6ffe6;
+    margin-bottom: 0px;
+    .card {
+        border: none;
+        text-align: center;
+        padding: 20px 10px;
+        .img-container {
+            display: flex;
+            justify-content: center;
+            .card-img-top {
+                width: 200px;
+                height: 200px;
+            }
+
+        }
+        .card-text {
+            color: gray;
+            font-size: 14px;
+        }
+    }
+}
+.security-section {
+    background-color: #008000;
+    color: white;
+}
+.user-wizard{
+    .number-circle {
+        padding: 7px 16px;
+        border-radius: 50% !important;
+    }
+}

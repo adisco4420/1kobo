@@ -1,0 +1,89 @@
+<div class="jumbotron bg-white ">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-4">The Best Way To Save  For The Future</h1>
+                <p class="my-5">With impressive interest rates, an app, tools & guides, 1kobo is the smartest way to plan, save & invest.</p>
+                <!-- <hr class="mt-4 "> -->
+                <p class="lead">
+                <a class="btn pry-btn btn-lg px-5" href="#" role="button">Get Started</a>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img width="100%" src="/assets/images/investment-bg.jpg" alt="bgi">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron info-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="pry-dark-text">Save smartly & responsibly!</h2>
+            </div>
+            <div class="col-md-4" *ngFor="let saving of savings">
+                <div class="card" >
+                    <div class="img-container">
+                        <img class="card-img-top" [src]="'/assets/images/'+saving.icon" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{saving.title}}</h5>
+                      <p class="card-text">{{saving.desc}}</p>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="jumbotron bg-white user-wizard">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/assets/images/user-wizard.jpg" width="100%" alt="icon">
+            </div>
+            <div class="col-md-6">
+                <h2 class="pry-dark-text mb-4">Start building wealth in 5 minutes</h2>
+                <div *ngFor="let wizard of userWizards; let i = index" class=" mb-3">
+                    <div class="d-flex">
+                        <div class="mr-3">
+                            <div class="number-circle shadow">
+                                {{i+1}}
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="pry-dark-text">{{wizard.title}}</h5>
+                            <p>{{wizard.desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron security-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-4">           
+                <h3>Your money is safe  and secured with us </h3>
+            </div>
+            <div *ngFor="let security of securitys" class="col-md-6 mb-4">
+                <div>
+                    <div class="d-flex">
+                        <div class="mr-2">
+                            <i class="fa fa-check-square"></i>
+                        </div>
+                        <div>
+                            <h5>
+                                <span>{{security.title}}</span>
+                            </h5>
+                            <p>{{security.desc}}</p>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

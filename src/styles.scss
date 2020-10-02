@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/css/variable.scss';
+@import 'assets/css/utilities.scss';
+
+body {
+    // background: #e6ffe6;
+    font-family: 'Poppins', sans-serif;
+}
