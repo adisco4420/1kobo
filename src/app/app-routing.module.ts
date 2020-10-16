@@ -1,3 +1,4 @@
+import { AboutUsComponent } from './main/about-us/about-us.component';
 import { HomeComponent } from './main/home/home.component';
 import { MainLayoutComponent } from './main/main-layout/main-layout.component';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,9 @@ const routes: Routes = [
   {
     path: '', component: MainLayoutComponent,
     children: [
-      {path: '', component: HomeComponent}
+      {path: '', component: HomeComponent},
+      {path: 'about-us', component: AboutUsComponent},
+
     ]
   }
 ];
