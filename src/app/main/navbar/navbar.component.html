@@ -6,8 +6,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLinkActive="active" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/about-us">About Us</a>
@@ -16,7 +16,7 @@
         <a class="nav-link" routerLinkActive="active" routerLink="/contact-us">Contact Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/faq">FAQs</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/faqs">FAQs</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
@@ -28,6 +28,6 @@
 
     </ul>
 
-  </div>
+  </div> 
 </nav>
 <div style="margin-bottom: 20px;"></div>
