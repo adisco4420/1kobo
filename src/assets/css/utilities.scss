@@ -3,12 +3,15 @@
     color: $pry-text !important;
 }
 .pry-btn {
-    background: $pry-btn-color;
-    color: white;
+    background: $pry-btn-color !important;
+    color: white !important;
 }
 .pry-dark-text {
     color: #006600;
 }
 .bg-pry-fade {
     background-color: #e6ffe6 !important;
+}
+.cursor-pointer {
+    cursor: pointer;
 }
