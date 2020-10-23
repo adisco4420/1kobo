@@ -131,7 +131,6 @@ p {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-  
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -140,6 +139,7 @@ p {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 50px 130px 33px 95px;
+    align-items: center;
   }
   
   /*------------------------------------------------------------------
