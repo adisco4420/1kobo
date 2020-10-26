@@ -15,8 +15,9 @@ const routes: Routes = [
       {path: 'about-us', component: AboutUsComponent},
       {path: 'contact-us', component: ContactUsComponent},
       {path: 'faqs', component: FaqsComponent},
-    ]
+    ],
   },
+  {path: '', loadChildren: () =>  import('./auth/auth.module').then(m => m.AuthModule)},
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
