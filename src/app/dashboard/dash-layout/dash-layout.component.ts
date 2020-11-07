@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash-layout',
@@ -6,14 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dash-layout.component.scss']
 })
 export class DashLayoutComponent implements OnInit {
-  trans = [
-    {type: 'card', desc: 'Funded Wallet via card', amount: 200, date: '12 April 2020'},
-    {type: 'savings', desc: 'New saving plan', amount: 500, date: '10 June 2020'},
-    {type: 'investment', desc: 'New investment plan', amount: 1000, date: '10 Dec 2020'},
-    {type: 'bank', desc: 'Withdraw fund to bank account', amount: 1000, date: '10 Dec 2020'},
-    {type: 'card', desc: 'Funded Wallet via card', amount: 200, date: '12 April 2020'},
-  ];
-  constructor() { }
+  page = {title: 'Hello Sodiq', text: ''};
+  constructor(router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const url = event.url;
+        if (url.includes('savings')) {
+          this.page = {title: 'Savings', text: 'get started'};
+        } else {
+          this.page = {title: 'Hello Sodiq', text: 'get started'};
+        }
+      }
+    });
+   }
 
   ngOnInit(): void {
   }
