@@ -1,0 +1,63 @@
+<div class="row balance-row">
+    <div class="col-md-4">
+        <div class="card wallet">
+            <div class="card-body">
+                <h5>Wallet Balance</h5>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>
+                            <span> <i class="fa fa-wallet card-icon"></i> </span>
+                            <span>$10,000.00</span>
+                        </p>
+                    </div>
+                    <div> <i class="fa fa-plus-circle fa-2x"></i> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card savings">
+            <div class="card-body">
+                <h5>Savings Balance</h5>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>
+                            <span> <i class="fa fa-piggy-bank card-icon"></i> </span>
+                            <span>$10,000.00</span>
+                        </p>
+                    </div>
+                    <div> <i class="fa fa-plus-circle fa-2x"></i> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card investments">
+            <div class="card-body">
+                <h5>Investment Balance</h5>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>
+                            <span> <i class="fa fa-signal card-icon"></i> </span>
+                            <span>$10,000.00</span>
+                        </p>
+                    </div>
+                    <div> <i class="fa fa-plus-circle fa-2x"></i> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-8">
+        <app-data-table [trans]="trans" ></app-data-table>
+    </div>
+    <div class="col-md-4">
+        <h5>Refer & Earn</h5>
+        <div class="card mt-4 ">
+            <div class="card-body">
+                <img src="/assets/images/referral-pix.jpg" width="100%" alt="icon">
+            </div>
+        </div>
+    </div>
+</div>
