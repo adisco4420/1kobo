@@ -1,3 +1,4 @@
+import { InvestmentsComponent } from './investments/investments.component';
 import { DashHomeComponent } from './dash-home/dash-home.component';
 import { SavingsComponent } from './savings/savings.component';
 import { DashLayoutComponent } from './dash-layout/dash-layout.component';
@@ -9,8 +10,9 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashLayoutComponent,
     children: [
-      {path: '', component: DashHomeComponent},
-      {path: 'savings', component: SavingsComponent}
+      {path: '', component: DashHomeComponent, data: {heading: 'Dashboard'}},
+      {path: 'savings', component: SavingsComponent, data: {heading: 'Savings'}},
+      {path: 'investments', component: InvestmentsComponent, data: {heading: 'Investments'}}
     ]
   },
 ];

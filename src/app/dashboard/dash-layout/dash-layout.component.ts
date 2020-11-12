@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash-layout',
@@ -10,12 +10,14 @@ export class DashLayoutComponent implements OnInit {
   page = {title: 'Hello Sodiq', text: ''};
   constructor(router: Router) {
     router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        const url = event.url;
-        if (url.includes('savings')) {
-          this.page = {title: 'Savings', text: 'get started'};
-        } else {
-          this.page = {title: 'Hello Sodiq', text: 'get started'};
+      if (event instanceof ActivationEnd) {
+        if (event.snapshot.data && event.snapshot.data.heading) {
+          const heading = event.snapshot.data.heading;
+          if (heading === 'Dashboard')  {
+            this.page = {title: 'Hello Sodiq', text: 'get started'};
+          } else {
+            this.page = {title: heading, text: null};
+          }
         }
       }
     });

@@ -6,10 +6,11 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashLayoutComponent } from './dash-layout/dash-layout.component';
 import { SavingsComponent } from './savings/savings.component';
 import { DashHomeComponent } from './dash-home/dash-home.component';
+import { InvestmentsComponent } from './investments/investments.component';
 
 
 @NgModule({
-  declarations: [DashLayoutComponent, SavingsComponent, DashHomeComponent],
+  declarations: [DashLayoutComponent, SavingsComponent, DashHomeComponent, InvestmentsComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
