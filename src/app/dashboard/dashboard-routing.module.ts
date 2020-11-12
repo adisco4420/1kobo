@@ -5,6 +5,7 @@ import { SavingsComponent } from './savings/savings.component';
 import { DashLayoutComponent } from './dash-layout/dash-layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
       {path: 'savings', component: SavingsComponent, data: {heading: 'Savings'}},
       {path: 'investments', component: InvestmentsComponent, data: {heading: 'Investments'}},
       {path: 'account', component: ProfileComponent, data: {heading: 'Account'}},
-
+      {path: 'transactions', component: TransactionsComponent, data: {heading: 'Transactions'}},
     ]
   },
 ];

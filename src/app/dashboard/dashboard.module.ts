@@ -8,10 +8,11 @@ import { SavingsComponent } from './savings/savings.component';
 import { DashHomeComponent } from './dash-home/dash-home.component';
 import { InvestmentsComponent } from './investments/investments.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 @NgModule({
-  declarations: [DashLayoutComponent, SavingsComponent, DashHomeComponent, InvestmentsComponent, ProfileComponent],
+  declarations: [DashLayoutComponent, SavingsComponent, DashHomeComponent, InvestmentsComponent, ProfileComponent, TransactionsComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

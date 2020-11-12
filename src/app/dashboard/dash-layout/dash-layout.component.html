@@ -31,10 +31,10 @@
                 <a class="nav-link" routerLink="/dashboard/account" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <span class="fa fa-user"></span>
                     Account
-                  </a>
+                  </a> 
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/dashboard/transactions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <span class="fa fa-signal"></span>
                     Transactions
                   </a>
@@ -54,9 +54,8 @@
                 </a>
               
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" routerLink="/dashboard/account">Profile</a>
+                  <a class="dropdown-item" href="#">Logout</a>
                 </div>
               </div>
           </div>
