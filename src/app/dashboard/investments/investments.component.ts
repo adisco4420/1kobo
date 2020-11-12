@@ -15,9 +15,9 @@ export class InvestmentsComponent implements OnInit {
     {type: 'card', desc: 'Funded Wallet via card', amount: 200, date: '12 April 2020'},
   ];
   invPlans = [
-    {period: 3, interest: 10},
-    {period: 6, interest: 20},
-    {period: 9, interest: 30},
+    {period: 2, interest: 10},
+    {period: 4, interest: 20},
+    {period: 6, interest: 30},
   ];
   constructor() { }
 

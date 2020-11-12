@@ -23,7 +23,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/dashboard/investments" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <span class="fa fa-signal"></span>
+                <span class="fa fa-chart-line"></span>
                 Investments
               </a>
             </li> 
@@ -31,12 +31,12 @@
                 <a class="nav-link" routerLink="/dashboard/account" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <span class="fa fa-user"></span>
                     Account
-                  </a>
+                  </a> 
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <span class="fa fa-cogs"></span>
-                    Settings
+                <a class="nav-link" routerLink="/dashboard/transactions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <span class="fa fa-signal"></span>
+                    Transactions
                   </a>
             </li>
 
@@ -44,7 +44,7 @@
         </div>
       </nav>
   
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 dashboard">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
           <h1 class="h3">{{page.title}}</h1>
           <div class=" mb-2 mb-md-0">
@@ -54,9 +54,8 @@
                 </a>
               
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" routerLink="/dashboard/account">Profile</a>
+                  <a class="dropdown-item" href="#">Logout</a>
                 </div>
               </div>
           </div>
