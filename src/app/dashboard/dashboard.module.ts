@@ -7,10 +7,11 @@ import { DashLayoutComponent } from './dash-layout/dash-layout.component';
 import { SavingsComponent } from './savings/savings.component';
 import { DashHomeComponent } from './dash-home/dash-home.component';
 import { InvestmentsComponent } from './investments/investments.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
-  declarations: [DashLayoutComponent, SavingsComponent, DashHomeComponent, InvestmentsComponent],
+  declarations: [DashLayoutComponent, SavingsComponent, DashHomeComponent, InvestmentsComponent, ProfileComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

@@ -6,3 +6,25 @@ body {
     // background: #e6ffe6;
     font-family: 'Poppins', sans-serif;
 }
+.dashboard {
+    .nav-tabs {
+        .nav-item {
+            .nav-link {
+                color: #006241;
+                &.active {
+                    background: #006241;
+                    color: white;
+                }
+            }
+        }
+    }
+    form {
+        .alert {
+            .titles {
+                p {
+                    margin: 5px;
+                }
+            }
+        }
+    }
+}
