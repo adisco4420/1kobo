@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dash-home.component.scss']
 })
 export class DashHomeComponent implements OnInit {
+  referralLink = 'https://1kobo.ng/salabi1';
   trans = [
     {type: 'card', desc: 'Funded Wallet via card', amount: 200, date: '12 April 2020'},
     {type: 'savings', desc: 'New saving plan', amount: 500, date: '10 June 2020'},
