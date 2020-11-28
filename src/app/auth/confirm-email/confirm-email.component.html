@@ -1,0 +1,27 @@
+<div class=" text-center">
+    <h4 class="text-center mb-4">Verify Account</h4>
+    <div *ngIf="showLoader">
+        <div>
+            <img src="/assets/gifs/rolling-circle.gif" width="75%" alt="gif">
+        </div>
+        <h6 class=" my-4">Please wait while we confirm your email.</h6>
+    </div>
+
+    <div *ngIf="!showLoader">
+        <div class="text-center" *ngIf="status.type==='success'">
+          <div>
+            <!-- <i class=" ti-email text-success ft-medium"></i> -->
+            <img width="150px" src="assets/images/verify-email.png" alt="verify-email">
+          </div>
+          <h5 class="my-3 text-capitalize text-success">{{status.msg}}</h5>
+          <a routerLink="/dashboard" class="btn pry-btn btn-block">Proceed</a>
+        </div>
+        <div class="text-center" *ngIf="status.type==='error'">
+          <div>
+              <i class="fa fa-exclamation-circle fa-5x text-danger"></i>
+          </div>
+          <h6 class="my-3">{{status.msg}}</h6>
+        </div>
+    </div>
+
+</div>

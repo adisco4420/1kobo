@@ -1,89 +1,72 @@
-<form [formGroup]="form"  >
-    <span class="login100-form-title">
-        Register
-    </span>
-    <div class="wrap-input100 validate-input" >
-        <input formControlName="fullName" class="input100" type="text" name="fullName" placeholder="Full Name">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </span>
-        <div class="text-danger" *ngIf="getCtrl('fullName').touched && getCtrl('fullName').invalid">
-            <span >*full name is invalid</span>
+
+<form  [formGroup]="form" (ngSubmit)="register()">
+    <h4 class="text-center mb-4">Register</h4>
+    <div class="mb-3">
+        <div class="input-group ">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
+            </div>
+            <input formControlName="fullName" type="text" class="form-control" placeholder="Full Name" >
+        </div>
+        <div *ngIf="getCtrl('fullName').touched && getCtrl('fullName').invalid" class="text-danger">
+            <span>*full name is invalid</span>
         </div>
     </div>
-    <!-- <div class="wrap-input100 validate-input" >
-        <input class="input100" type="text" name="lastName" placeholder="Last Name">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </span>
-    </div> -->
-    <div class="wrap-input100 validate-input" >
-        <input formControlName="email" class="input100" type="text" name="email" placeholder="Email">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-        </span>
-    </div>
-    <div class="wrap-input100 validate-input" >
-        <input formControlName="phoneNumber" class="input100" type="tel" name="phoneNumber" placeholder="Phone Number">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-phone" aria-hidden="true"></i>
-        </span>
-    </div>
-    <div class="wrap-input100 validate-input">
-        <input formControlName="password" class="input100" [type]="showPwd ? 'text': 'password'" name="pass" placeholder="Passwordx">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-lock" aria-hidden="true"></i>
-        </span>
-        <span  class="symbol-input100 pwd-right-icon ">
-            <i (click)="togglePwd()" class="fa fa-eye cursor-pointer" aria-hidden="true"></i>
-        </span>
-    </div>
-    <div class="wrap-input100 validate-input" >
-        <input formControlName="referredBy" class="input100" type="text" name="refferalCode" placeholder="Referrer Code (optional)">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-ticket-alt" aria-hidden="true"></i>
-        </span>
-    </div>
-    <div class="wrap-input100 validate-input" >
-        <div class="form-group">
-            <label class="ml-2" >
-                <small>How Did You Hear About Us? (optional)</small>
-            </label>         
-            <select formControlName="infoSource" class="input100 p-0 px-3 form-control" name="">
-                <option value="">Click To Select</option>
-                <option value="">Facebook</option>
-                <option value="">Twitter</option>
-            </select>
+    <div class="mb-3">
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+            </div>
+            <input formControlName="email" type="email" class="form-control" placeholder="Email" >
         </div>
-        <!-- <input class="input100" type="text" name="refferalCode" placeholder="How Did You Hear About Us? (optional)"> -->
-        <!-- <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-user-cog" aria-hidden="true"></i>
-        </span> -->
+        <div *ngIf="getCtrl('email').touched && getCtrl('email').invalid" class="text-danger">
+            <span>*email is invalid</span>
+        </div>
     </div>
-    <div class="container-login100-form-btn"> 
-        <button [disabled]="form.invalid" (click)="register()" type="button" class="login100-form-btn pry-btn">
-            Register
+    <div class="mb-3">
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-phone"></i></span>
+            </div>
+            <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number" >
+        </div>
+        <div *ngIf="getCtrl('phoneNumber').touched && getCtrl('phoneNumber').invalid" class="text-danger">
+            <span>*phone number is invalid</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="input-group ">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+            </div>
+            <input formControlName="password" [type]="showPwd ? 'text': 'password'" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <span (click)="togglePwd()" class="input-group-text cursor-pointer"><i class="fa {{showPwd ? 'fa-eye-slash': 'fa-eye'}}"></i></span>
+            </div>
+        </div>
+        <div *ngIf="getCtrl('password').touched && getCtrl('password').invalid" class="text-danger">
+            <span>*password is invalid</span>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-ticket-alt"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Referal Code (optional)" >
+    </div>
+    <div class="form-group">
+       <small> <label>How Did You Hear About Us? (optional)</label></small>
+        <select  class="form-control">
+            <option value="">Click to select</option>
+            <option value="facebook">Facebook</option>
+            <option value="instegram">Instagram</option>
+            <option value="twitter">Twitter</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button [disabled]="form.invalid || loading" class="btn pry-btn btn-block">
+            Register <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
         </button>
     </div>
-    <div class="text-center p-t-12">
-        <span class="txt1">
-            Already a member?
-        </span>
-        <a class="txt2" routerLink="/login">
-            Login?
-        </a>    
-    </div>
-    <!-- <div class="text-center p-t-136">
-        <a class="txt2" href="#">
-            Account login
-            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-        </a>
-    </div> -->
 </form>
+<p class="text-center">Already a member? <a routerLink="/login">Login</a></p>
