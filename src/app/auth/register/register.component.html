@@ -4,7 +4,7 @@
     <div class="mb-3">
         <div class="input-group ">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
             <input formControlName="fullName" type="text" class="form-control" placeholder="Full Name" >
         </div>
@@ -15,7 +15,7 @@
     <div class="mb-3">
         <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+              <span class="input-group-text"><i class="fa fa-envelope"></i></span>
             </div>
             <input formControlName="email" type="email" class="form-control" placeholder="Email" >
         </div>
@@ -26,9 +26,9 @@
     <div class="mb-3">
         <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
+              <span class="input-group-text"><i class="fa fa-phone"></i></span>
             </div>
-            <input formControlName="phoneNumber" type="tel" class="form-control" placeholder="Phone Number" >
+            <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number" >
         </div>
         <div *ngIf="getCtrl('phoneNumber').touched && getCtrl('phoneNumber').invalid" class="text-danger">
             <span>*phone number is invalid</span>
@@ -50,7 +50,7 @@
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1"><i class="fa fa-ticket-alt"></i></span>
+          <span class="input-group-text"><i class="fa fa-ticket-alt"></i></span>
         </div>
         <input type="text" class="form-control" placeholder="Referal Code (optional)" >
     </div>
@@ -69,3 +69,4 @@
         </button>
     </div>
 </form>
+<p class="text-center">Already a member? <a routerLink="/login">Login</a></p>

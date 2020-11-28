@@ -8,10 +8,11 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPwdComponent } from './forgot-pwd/forgot-pwd.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, AuthLayoutComponent, RegisterComponent, ForgotPwdComponent],
+  declarations: [LoginComponent, AuthLayoutComponent, RegisterComponent, ForgotPwdComponent, ConfirmEmailComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
