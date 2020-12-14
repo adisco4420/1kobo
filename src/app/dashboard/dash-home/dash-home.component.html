@@ -51,7 +51,17 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-8">
-            <app-data-table [trans]="trans" ></app-data-table>
+            <ng-container *ngIf="trans.length; else noTrans">
+                <app-data-table [trans]="trans" ></app-data-table>
+            </ng-container>
+            <ng-template #noTrans>
+               <div class="t d-flex justify-content-center align-items-center text-center" style="height: 50vh;">
+                <div>
+                    <img width="100px" src="/assets/images/no-list.png" alt="img">
+                    <h6 class="mt-3">No recent transaction</h6> 
+                </div>
+               </div>
+            </ng-template>
         </div>
         <div class="col-md-4">
             <h5>Refer & Earn</h5>
