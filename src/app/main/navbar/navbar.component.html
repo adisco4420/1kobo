@@ -18,13 +18,18 @@
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/faqs">FAQs</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a routerLinkActive="active" routerLink="/register" class="btn pry-btn px-5">Register</a>
-        <!-- <a class="nav-link" href="#"></a> -->
-      </li>
+      <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+        <a routerLinkActive="active" routerLink="/dashboard" class="btn pry-btn px-5">Dashboard</a>
+      </ng-container>
+      <ng-template #notLoggedIn>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" routerLink="/register" class="btn pry-btn px-5">Register</a>
+          <!-- <a class="nav-link" href="#"></a> -->
+        </li>
+      </ng-template>
 
     </ul>
 
