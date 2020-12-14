@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/css/variable.scss';
 @import 'assets/css/utilities.scss';
+@import '~ngx-toastr/toastr';
 
 body {
     // background: #e6ffe6;
@@ -25,6 +26,33 @@ body {
                     margin: 5px;
                 }
             }
+        }
+    }
+}
+.transaction {
+    thead tr th {
+        border: none;
+    }
+    .td-icon {
+        padding: 22px
+    }
+    .round-container {
+        padding: 9px;
+        border-radius: 50%;
+        color: white;
+        margin-top: 10px;
+    }
+}
+.savings-summary-card, .saving-plan-view {
+    .text-left {
+        h6 {
+            font-weight: 400;
+        }
+    }
+    .text-right {
+        b {
+            color: dimgray;
+            font-weight: 600;
         }
     }
 }

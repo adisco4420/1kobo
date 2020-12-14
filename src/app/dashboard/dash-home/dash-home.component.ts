@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
+import { DashService } from './../services/dash.service';
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-dash-home',
@@ -7,16 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashHomeComponent implements OnInit {
   referralLink = 'https://1kobo.ng/salabi1';
-  trans = [
-    {type: 'card', desc: 'Funded Wallet via card', amount: 200, date: '12 April 2020'},
-    {type: 'savings', desc: 'New saving plan', amount: 500, date: '10 June 2020'},
-    {type: 'investment', desc: 'New investment plan', amount: 1000, date: '10 Dec 2020'},
-    {type: 'bank', desc: 'Withdraw fund to bank account', amount: 1000, date: '10 Dec 2020'},
-    {type: 'card', desc: 'Funded Wallet via card', amount: 200, date: '12 April 2020'},
-  ];
-  constructor() { }
+  trans: any[];
+  balance: {wallet: number, savings: number, investments: number};
+  constructor(
+    private dashSrv: DashService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.getTrans();
+    this.getBalances();
+  }
+  getBalances() {
+    const getUserBalance = this.dashSrv.getProfile();
+    const getSavingsBalance = this.dashSrv.getTotalSavingsAmount();
+    forkJoin([getUserBalance, getSavingsBalance]).subscribe((
+      [{data: {payload: userProfile }}, savings]) => {
+        const wallet = userProfile.walletBalance;
+        this.balance = {wallet, savings, investments: 0};
+    });
+  }
+  getTrans() {
+    this.dashSrv.getUserTrans().subscribe(({data}) => {
+      this.trans = data.slice(0, 7);
+    });
+  }
+  viewPage(page, query?) {
+    this.router.navigate([`/dashboard/${page}`], {queryParams: {view: query}});
   }
 
 }

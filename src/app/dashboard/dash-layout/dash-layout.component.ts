@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 
@@ -8,7 +9,9 @@ import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 })
 export class DashLayoutComponent implements OnInit {
   page = {title: 'Hello Sodiq', text: ''};
-  constructor(router: Router) {
+  constructor(
+    router: Router,
+    private authSrv: AuthService) {
     router.events.subscribe(event => {
       if (event instanceof ActivationEnd) {
         if (event.snapshot.data && event.snapshot.data.heading) {
@@ -25,5 +28,7 @@ export class DashLayoutComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout() {
+    this.authSrv.logout();
+  }
 }

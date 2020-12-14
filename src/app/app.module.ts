@@ -1,6 +1,8 @@
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,8 @@ import { MainLayoutComponent } from './main/main-layout/main-layout.component';
 import { AboutUsComponent } from './main/about-us/about-us.component';
 import { ContactUsComponent } from './main/contact-us/contact-us.component';
 import { FaqsComponent } from './main/faqs/faqs.component';
+import { ToastrModule } from 'ngx-toastr';
+import { RequestInterceptor } from './core/interceptors/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,23 @@ import { FaqsComponent } from './main/faqs/faqs.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

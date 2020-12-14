@@ -16,7 +16,6 @@ export interface SweetAlertOption {
   providedIn: 'root'
 })
 export class GeneralService {
-
   constructor() { }
 
   getErrMsg({error}: HttpErrorResponse) {

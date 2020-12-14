@@ -1,0 +1,105 @@
+    <div *ngIf="activeSavingsList" class="table-responsive transaction">
+        <h6>Savings</h6>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Amount Earned</th>
+                    <th>Maturity date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let plan of activeSavingsList">
+                <td>
+                    <span class="round-container bg-info">
+                        <span>
+                            <i  class="fa fa-piggy-bank"></i>
+                        </span>
+                    </span>
+                </td>
+                <td >
+                    <p class="p-0 m-0">{{plan.name}}</p>
+                </td>
+                <td><p>
+                    <span>{{plan.amount | currency:'NGN':'symbol-narrow'}}/ </span>
+                    <span>{{plan.frequency}}</span>
+                </p></td>
+                <td>
+                  {{getTotalEarned(plan) | currency:'NGN':'symbol-narrow'}}
+                </td>
+                <td>
+                    <span class="text-right">
+                        {{plan.maturityDate | date}}
+                    </span>
+                </td>
+                <td>
+                    <p class="text-{{statusColor(plan.status)}} text-uppercase" >{{plan.status}}</p>
+                </td>
+                <td>
+                    <button (click)="viewPlan(plan)" class="btn btn-sm btn-info">view</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+    </div>
+  <!-- Button trigger modal -->
+  <button type="button" [id]="btnId" class="btn btn-primary d-none" data-toggle="modal" [attr.data-target]="'#'+btnId+'Modal'">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" [id]="btnId+'Modal'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" *ngIf="selectedPlan">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{selectedPlan.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body saving-plan-view">
+          <div class="alert alert-info text-center">
+            <h6>Fund plan by transferring {{selectedPlan.amount | currency:'NGN':'symbol-narrow'}} to the bank account below.</h6>
+            <div >
+              <h6>Bank name: <b>Rubies Bank</b></h6>
+              <h6>Account number: <b>{{selectedPlan.virtualAct.virtualaccount}}</b> </h6>
+              <h6>Account name: <b>{{selectedPlan.virtualAct.virtualaccountname}}</b> </h6>
+            </div>
+          </div>
+          <div class=" d-flex justify-content-between">
+            <div class="text-left">
+                <h6>Amount</h6>
+                <h6>Total Earned</h6>
+                <h6>Start date</h6>
+                <h6>Maturity date</h6>
+                <h6>Interest value</h6>
+                <h6>Withdraw fee</h6>
+                <h6>Expected Total return</h6>
+                <h6>Status</h6>
+            </div>
+            <div class="text-right">
+                <h6><b>
+                    <span>{{selectedPlan.amount | currency: 'NGN':'symbol-narrow'}}</span> /
+                    <span>{{selectedPlan.frequency}}</span>
+                </b></h6>
+                <h6><b>{{getTotalEarned(selectedPlan)  | currency:'NGN':'symbol-narrow'}}</b></h6>
+                <h6><b>{{selectedPlan.startDate | date}}</b></h6>
+                <h6><b>{{selectedPlan.maturityDate | date}}</b></h6>
+                <h6><b>{{(getInterestRate(selectedPlan) | currency: 'NGN':'symbol-narrow')}} | {{planTypesUtil[selectedPlan.planType].rate.monthly+'%'}}</b></h6>
+                <h6><b>{{(getwithdrawFee(selectedPlan) * getInterestRate(selectedPlan)) | currency: 'NGN':'symbol-narrow'}}</b></h6> 
+                <h6><b>{{(getTotalInterest(selectedPlan) - (getwithdrawFee(selectedPlan) * getInterestRate(selectedPlan)) | currency: 'NGN':'symbol-narrow')}}</b></h6>
+                <h6 ><b class=" text-uppercase text-{{statusColor(selectedPlan.status)}}">{{selectedPlan.status}}</b></h6>
+            </div>
+        </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn pry-btn">Withdraw</button>
+        </div>
+      </div>
+    </div>
+  </div>

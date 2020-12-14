@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +11,9 @@ export class AuthService {
   private readonly api = environment.apiUrl;
   private readonly localStorageKey = '1kobo_User';
   public currentUserSubject: BehaviorSubject<string>;
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private router: Router) {
     this.currentUserSubject = new BehaviorSubject(this.getToken);
   }
 
@@ -55,6 +58,7 @@ export class AuthService {
   }
   logout() {
     this.removeToken();
+    return this.router.navigate(['/login']);
   }
 
 
